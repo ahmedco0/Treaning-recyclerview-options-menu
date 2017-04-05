@@ -1,37 +1,30 @@
 package net.simplifiedcoding.recyclerviewoptionsmenu;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
     //recyclerview objects
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter adapter;
-
     //model object for our list data
     private List<MyList> list;
 
+    // dEVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //initializing views
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         list = new ArrayList<>();
-
-        //loading list view item with this function
         loadRecyclerViewItem();
     }
 
@@ -45,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
             );
             list.add(myList);
         }
-
         adapter = new CustomAdapter(list, this);
         recyclerView.setAdapter(adapter);
     }
